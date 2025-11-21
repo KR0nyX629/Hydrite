@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hydrite</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#071226;
+    --panel:#071827;
+    --muted:#9fb3c8;
+    --accent:#3ddcff;
+    --glass: rgba(255,255,255,0.03);
+    --card-radius:14px;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#04101a);color:#e6f6ff;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:48px auto;padding:28px;}
+  header{display:flex;gap:18px;align-items:center}
+  .logo{width:64px;height:64px;border-radius:12px;background:var(--glass);display:grid;place-items:center;overflow:hidden;flex:0 0 64px}
+  .logo img{width:44px;height:44px;object-fit:contain;display:block}
+  h1{font-weight:700;margin:0;font-size:28px;letter-spacing:-0.5px}
+  .tag{color:var(--muted);margin-top:6px;font-size:13px}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1fr 380px;gap:26px;margin-top:28px;align-items:center}
+  .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:var(--card-radius); padding:22px; box-shadow: 0 6px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.02)}
+  .cta-row{display:flex;gap:12px;margin-top:18px}
+  .btn{background:var(--accent);color:#052; padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(61,220,255,0.08);display:inline-flex;gap:10px;align-items:center}
+  .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .stat-grid{display:flex;gap:10px;margin-top:16px}
+  .stat{flex:1;background: rgba(255,255,255,0.01);padding:12px;border-radius:10px;text-align:center}
+  .stat h3{margin:0;font-size:18px}
+  .stat p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+  /* Comparison */
+  .compare{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .compare .card{padding:18px;min-height:170px;display:flex;flex-direction:column;gap:8px}
+  .compare h4{margin:0}
+  .feature{display:flex;align-items:center;gap:8px;font-size:14px}
+  .tick{display:inline-block;background:linear-gradient(90deg,#30e0ff,#44a3ff);color:#012;padding:6px;border-radius:8px;font-weight:700;font-family:'Fira Code',monospace;font-size:12px}
+
+  /* Video / Demo */
+  .media{margin-top:36px;display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+  .video{background:#000;border-radius:12px;overflow:hidden;min-height:220px;display:grid;place-items:center}
+  .video video{width:100%;height:auto;display:block}
+  .right-info{display:flex;flex-direction:column;gap:12px}
+  .download-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+  .small{font-size:13px;color:var(--muted)}
+
+  /* Credits / footer */
+  footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px;padding:28px}
+
+  /* Animations */
+  .fade-in{animation:fadeIn .9s ease both}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* Responsive */
+  @media(max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .media{grid-template-columns:1fr}
+    .compare{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="fade-in">
+      <div class="logo" id="logoWrap">
+        <!-- replace src with your PNG/ICO path if you want -->
+        <img id="logo" src="Hydrite.ico" alt="Hydrite logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22><rect width=%2244%22 height=%2244%22 fill=%22%23071226%22 rx=%2212%22/><text x=%2222%22 y=%2229%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22%23e6f6ff%22 font-family=%22Fira Code,monospace%22>H</text></svg>';">
+      </div>
+      <div>
+        <h1>Hydrite <span style="color:var(--muted);font-weight:400">— Minimal · Private · Professional</span></h1>
+        <div class="tag">Fast, private browsing with built-in ad-block, polished minimal design, and an installer for Windows.</div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="panel fade-in">
+        <h2 style="margin:0">Built for focus & privacy</h2>
+        <p class="small" style="margin-top:8px;color:var(--muted)">Hydrite reduces noise and tracking while keeping the browser lightweight and professional — perfect for work and privacy-first browsing.</p>
+
+        <div class="cta-row">
+          <!-- Download uses your provided installer path (local path shown below). Update if you host otherwise. -->
+          <a id="downloadBtn" class="btn" href="HydriteSetup.exe" download>
+            ⤓ Download Hydrite Installer
+          </a>
+
+          <a class="btn secondary" href="#features">Learn more</a>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <h3>Minimal</h3>
+            <p class="small">Clean UI, fast startup, low footprint</p>
+          </div>
+          <div class="stat">
+            <h3>Private</h3>
+            <p class="small">Ad-block & privacy-first defaults</p>
+          </div>
+          <div class="stat">
+            <h3>Modular</h3>
+            <p class="small">Bookmarks, VPN toggle, customizable</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel fade-in">
+        <h3 style="margin:0">Quick facts</h3>
+        <ul style="margin-top:10px;color:var(--muted);line-height:1.6">
+          <li>Default search: <strong>Google</strong></li>
+          <li>Built-in ad-block (lite)</li>
+          <li>Dockable bookmarks sidebar</li>
+          <li>VPN toggle (launches external client)</li>
+        </ul>
+        <div style="margin-top:12px">
+          <div class="small">Installer file</div>
+          <div style="font-family:Fira Code,monospace;background:rgba(0,0,0,0.15);padding:8px;border-radius:8px;margin-top:6px">
+            Hydrite Installer is safe and open-source. Made not with chromium, but Python.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- COMPARISON -->
+    <section id="features" class="compare fade-in" aria-labelledby="compareTitle">
+      <div class="card panel">
+        <h4>Hydrite</h4>
+        <p class="small">Privacy-first, minimal UI, built-in adblock, bookmark sidebar and easy packaging.</p>
+        <div style="margin-top:10px">
+          <div class="feature"><span class="tick">✓</span> Built-in ad-block</div>
+          <div class="feature"><span class="tick">✓</span> Dockable bookmarks</div>
+          <div class="feature"><span class="tick">✓</span> Minimal & fast</div>
+          <div class="feature"><span class="tick">✓</span> Easy packaging / installer</div>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <h4>Google Chrome</h4>
+        <p class="small">Not open source, and heavier and less private by default.</p>
+        <div style="margin-top:10px">
+          <div class="feature"><span style="opacity:.4">✕</span> Privacy-by-default</div>
+          <div class="feature"><span style="opacity:.4">✕</span> Lightweight footprint</div>
+          <div class="feature"><span class="tick" style="background:linear-gradient(90deg,#ffd24d,#ff8a4d)">✓</span> Extensions ecosystem</div>
+          <div class="feature"><span style="opacity:.4">✕</span> Built-in minimal UI</div>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <h4>Safari</h4>
+        <p class="small">Tightly integrated into macOS, no windows compatibility and limited customization and Windows support.</p>
+        <div style="margin-top:10px">
+          <div class="feature"><span style="opacity:.4">✕</span> Cross-platform Windows focus</div>
+          <div class="feature"><span class="tick" style="background:linear-gradient(90deg,#8ef0c6,#32d2a6)">✓</span> Native macOS integration</div>
+          <div class="feature"><span style="opacity:.4">✕</span> Adblock built-in</div>
+          <div class="feature"><span style="opacity:.4">✕</span> Installer for Windows</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA & DOWNLOAD -->
+    <section class="media fade-in">
+      <div class="video panel">
+        <!-- Replace with your video or embed code -->
+        <video controls poster="" style="max-height:320px">
+          <!-- If you want YouTube, replace this element with an iframe embed -->
+          <source src="Hydrite.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <aside class="right-info">
+        <div class="download-card">
+          <h4>Download Hydrite</h4>
+          <p class="small">Click the button to download the installer. To use installer, open with Inno Setup or replace link with your built EXE.</p>
+
+          <!-- Download link points to uploaded installer file path you provided -->
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <a id="downloadDirect" class="btn" href="HydriteSetup.exe" download>
+              ⤓ Download Installer
+            </a>
+            <a id="downloadExePlaceholder" class="btn secondary" href="#" onclick="alert('Replace this link with your built EXE URL')">Mac. Coming Soon</a>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="small">Note:</div>
+            <div class="small" style="color:var(--muted)">Hydrite launches external VPN clients — configure your VPN in Settings after installing.</div>
+          </div>
+        </div>
+
+        <div style="padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);margin-top:12px">
+          <div class="small">Installer size: 190mb</div>
+          <div class="small">Platform: Windows!!</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Credits -->
+    <footer class="fade-in">
+      <div><strong>Credits</strong></div>
+      <div class="small" style="margin-top:8px">Hydrite Browser by you. UI & code by Hydrite Dev Tools. Uses PyQt6, Qt WebEngine and user-supplied components. Browser design inspired by Arc and Zen.</div>
+      <div style="margin-top:10px" class="small">© 2025 Hydrite — All rights reserved.</div>
+    </footer>
+  </div>
+
+<script>
+  // Minimal interactivity
+  document.getElementById('downloadBtn').addEventListener('click', function(e){
+    // If the installer is hosted, allow normal navigation; otherwise user will get the file directly.
+    // Keep default behavior; we provide a visual acknowledgement.
+    this.innerText = 'Preparing...';
+    setTimeout(()=> this.innerText = 'Download Hydrite Installer', 1200);
+  });
+
+  // Make logo clickable to homepage
+  document.getElementById('logoWrap').addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+  // If you want to replace the download link with a hosted EXE, change the href of #downloadDirect
+  // e.g. document.getElementById('downloadDirect').href = 'https://your.cdn.com/HydriteSetup.exe'
+</script>
+</body>
+</html>
