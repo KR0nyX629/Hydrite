@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydrite Browser</title>
+
+<!-- Nerd Font (Fira Code NF) -->
+<link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@latest/distr/fira_code.css" rel="stylesheet">
+
+<style>
+    :root {
+        --bg: #0f0f0f;
+        --fg: #eaeaea;
+        --accent: #4aa3ff;
+        --card: #1b1b1b;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: "Fira Code", monospace;
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 40px;
+        text-align: center;
+        animation: fadeUp 1s ease-out;
+    }
+
+    header img {
+        width: 120px;
+        filter: drop-shadow(0 0 20px #4aa3ff80);
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin: 20px 0 10px;
+        font-weight: 600;
+    }
+
+    p.subtitle {
+        font-size: 1.2rem;
+        opacity: .8;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 25px;
+        margin-top: 25px;
+        font-size: 1.1rem;
+        background: var(--accent);
+        color: black;
+        border-radius: 8px;
+        transition: 0.2s;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .btn:hover {
+        transform: scale(1.07);
+        background: #6bb6ff;
+    }
+
+    .section {
+        padding: 60px 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .card {
+        background: var(--card);
+        padding: 30px;
+        border-radius: 14px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 20px #00000050;
+    }
+
+    video {
+        width: 100%;
+        border-radius: 12px;
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    table td, table th {
+        padding: 15px;
+        border-bottom: 1px solid #333;
+    }
+
+    table th {
+        font-size: 1.1rem;
+        color: var(--accent);
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        opacity: .6;
+        letter-spacing: 0.5px;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="Hydrite.png" alt="Hydrite Logo">
+    <h1>Hydrite Browser</h1>
+    <p class="subtitle">Fast. Private. Modern. Designed for you.</p>
+
+    <a class="btn" href="https://github.com/KR0nyX629/Hydrite/releases/download/v4/HydriteSetup.exe">
+        ⤓ Download Hydrite
+    </a>
+</header>
+
+<!-- About Section -->
+<div class="section">
+    <div class="card">
+        <h2>⚡ What is Hydrite?</h2>
+        <p>
+            Hydrite is a new minimal, privacy-focused browser built using Python + PyQt.
+            No tracking. No telemetry. No ads. No bloat.
+        </p>
+        <p>
+            Built for speed, simplicity, and full user control — including custom themes, 
+            private mode, encrypted DNS, and optional VPN integration.
+        </p>
+    </div>
+</div>
+
+<!-- Video Section -->
+<div class="section">
+    <div class="card">
+        <h2>🎬 Hydrite Showcase</h2>
+        <p>Watch the quick demo of the Hydrite browser:</p>
+
+        <video controls>
+            <source src="https://github.com/KR0nyX629/Hydrite/releases/download/v4/Hydrite.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<!-- Comparison Section -->
+<div class="section">
+    <div class="card">
+        <h2>📊 Hydrite vs Other Browsers</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Hydrite</th>
+                <th>Chrome</th>
+                <th>Safari</th>
+            </tr>
+
+            <tr>
+                <td>No tracking / telemetry</td>
+                <td>✔ Yes</td>
+                <td>❌ No</td>
+                <td>❌ No</td>
+            </tr>
+
+            <tr>
+                <td>Custom startpage</td>
+                <td>✔ Built-in</td>
+                <td>❌ Limited</td>
+                <td>❌ No</td>
+            </tr>
+
+            <tr>
+                <td>Lightweight & minimal</td>
+                <td>✔ Very</td>
+                <td>❌ Heavy</td>
+                <td>❌ Heavy</td>
+            </tr>
+
+            <tr>
+                <td>Integrated VPN toggle</td>
+                <td>✔ Optional</td>
+                <td>❌ None</td>
+                <td>❌ None</td>
+            </tr>
+
+            <tr>
+                <td>Adblock (built-in)</td>
+                <td>✔ Yes</td>
+                <td>❌ No (extensions only)</td>
+                <td>❌ No (extensions only)</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<!-- Credits -->
+<div class="section">
+    <div class="card">
+        <h2>💎 Credits</h2>
+        <p>Developed by <strong>KR0nyX629</strong>.</p>
+        <p>Logo, UI design, code, and branding by you.</p>
+        <p>Special thanks to the open-source Python community and Qt developers.</p>
+    </div>
+</div>
+
+<footer>
+    Hydrite Browser © 2025 — Made with ❤️ for the internet.
+</footer>
+
+</body>
+</html>
